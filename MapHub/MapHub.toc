@@ -1,0 +1,14 @@
+## Interface: 120100, 120007, 120001
+## Title: Map Hub - Explorer, Farming & Guides
+## Notes: Starter explorer, farming, guides, collection checklists, planner, and user waypoints.
+## Author: Map Hub
+## Version: 0.3.7
+## SavedVariables: MapHubDB
+Farming.lua
+MapHub.lua
+Explorer.lua
+MapData.lua
+MapPins.lua
+MapPins.xml
+
+HubIntegration.lua

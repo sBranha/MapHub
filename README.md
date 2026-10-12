@@ -1,16 +1,24 @@
 # MapHub
 
-Official World of Warcraft addon **MapHub** (current prepared build: **v0.3.7**).
+Official World of Warcraft addon. Current published version: **v0.3.7**.
 
-**Official website:** https://gearhunter.net/addon.php?slug=maphub  
-**Downloads and update information:** https://gearhunter.net/
+- Addon information and download counter: https://gearhunter.net/
+- Downloadable releases: https://github.com/sBranha/MapHub/releases
+- Source files: `MapHub/`
+- Published ZIP: `MapHub-vX.Y.Z.zip`
 
-MapHub runs independently of Gear Hunter. The optional GearHub Windows Companion and GearHubBridge helper support update notices and opted-in installation statistics.
+## Automated publishing
 
-## Development and releases
+This repository is wired for automated GitHub Releases using **GitHub Actions**, following the project's David-style distribution process.
 
-The `MapHub/` directory contains the standalone addon source. Package it as `MapHub-v<version>.zip` for releases. Never place website admin files, access tokens, or SQLite databases in this repository.
+When a complete new addon build is committed to `MapHub/` with an increased `## Version:` in `MapHub.toc`, the publish workflow:
+1. Validates the addon directory and TOC version.
+2. Builds an installable ZIP containing the correct addon folder.
+3. Generates a SHA-256 checksum.
+4. Publishes the release as `vX.Y.Z` on GitHub.
 
-Release updates and downloads should be published through the gearhunter.net admin panel after GitHub integration is configured.
+No GitHub Desktop and no manual release asset upload are required. The website detects published GitHub releases, records website download clicks in SQLite, and redirects the user to the GitHub-hosted ZIP. GitHub's own asset download counters are reported separately.
 
-**Status:** Repository initialized. Complete addon source still needs to be uploaded.
+**Important:** A version already published cannot be republished under the same tag by the workflow. Increase the TOC version for every new release. The source repository is not the public website: do not commit website administration code, SQLite data, passwords, setup keys, or credentials.
+
+The optional Windows Companion and in-game GearHubBridge supply update notifications and opt-in usage reporting. The addon itself works independently of them.

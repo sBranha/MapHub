@@ -43,7 +43,7 @@ end
 local function create()
  frame=CreateFrame('Frame','MapHubFarmingPanel',UIParent,'BackdropTemplate'); frame:SetSize(650,455); frame:SetPoint('CENTER'); frame:SetFrameStrata('DIALOG'); frame:SetMovable(true); frame:EnableMouse(true); frame:RegisterForDrag('LeftButton'); frame:SetScript('OnDragStart',frame.StartMoving); frame:SetScript('OnDragStop',frame.StopMovingOrSizing)
  frame:SetBackdrop({bgFile='Interface\\DialogFrame\\UI-DialogBox-Background',edgeFile='Interface\\DialogFrame\\UI-DialogBox-Border',edgeSize=28,insets={left=8,right=8,top=8}})
- local title=frame:CreateFontString(nil,'OVERLAY','GameFontNormalLarge'); title:SetPoint('TOPLEFT',20,-18); title:SetText('MAP HUB  |cff9db2c5v0.3.0|r  - Farming Finder')
+ local title=frame:CreateFontString(nil,'OVERLAY','GameFontNormalLarge'); title:SetPoint('TOPLEFT',20,-18); title:SetText('MAP HUB  |cff9db2c5v0.3.9|r  - Farming Finder')
  btn(frame,'X',605,-12,26,25,function() frame:Hide() end)
  frame.exp=btn(frame,'',18,-55,292,30,function() expIndex=expIndex%#expansions+1; refresh() end)
  frame.kind=btn(frame,'',324,-55,306,30,function() kindIndex=kindIndex%#kinds+1; refresh() end)

@@ -1,4 +1,4 @@
--- Map Hub v0.3.7: automatic verified pins on the Blizzard world map.
+-- Map Hub v0.3.9: automatic verified pins on the Blizzard world map.
 local function settings()
  MapHubDB=MapHubDB or {}
  MapHubDB.mapPinFilters=MapHubDB.mapPinFilters or {}
@@ -100,7 +100,7 @@ local function makeFilters()
   p:SetShown(not p:IsShown()); return
  end
  local p=CreateFrame('Frame',nil,WorldMapFrame,'BackdropTemplate')
- p:SetSize(225,205)
+ p:SetSize(240,332)
  p:SetPoint('TOPRIGHT',WorldMapFrame,'TOPRIGHT',-12,-92)
  p:SetFrameStrata('DIALOG')
  p:SetFrameLevel(WorldMapFrame:GetFrameLevel()+30)
@@ -109,20 +109,25 @@ local function makeFilters()
  title:SetPoint('TOPLEFT',p,'TOPLEFT',12,-12);title:SetText('Map Hub Filters')
  local close=CreateFrame('Button',nil,p,'UIPanelCloseButton')
  close:SetPoint('TOPRIGHT',p,'TOPRIGHT',2,2)
- local entries={{'Treasure','Show Treasures'},{'Rare','Show Rares'},{'Secret','Show Secrets'},{'Profession','Show Profession Knowledge'}}
+ local entries={{'Rare','Show Rares'},{'Treasure','Show Treasures'},{'Chest','Show Chests'},{'Secret','Show Secrets'},{'Collectible','Show Collectibles'},{'Profession','Show Profession'},{'Gathering','Show Gathering'},{'Other','Show Other'}}
  for i,e in ipairs(entries) do
   local category,label=e[1],e[2]
   local cb=CreateFrame('CheckButton',nil,p,'UICheckButtonTemplate')
-  cb:SetPoint('TOPLEFT',p,'TOPLEFT',12,-24-i*27)
+  cb:SetPoint('TOPLEFT',p,'TOPLEFT',12,-25-i*26)
   cb.text:SetText(label)
   cb:SetChecked(settings().mapPinFilters[category]~=false)
   cb:SetScript('OnClick',function(self) settings().mapPinFilters[category]=self:GetChecked() and true or false;refresh() end)
  end
  local hide=CreateFrame('CheckButton',nil,p,'UICheckButtonTemplate')
- hide:SetPoint('TOPLEFT',p,'TOPLEFT',12,-166)
+ hide:SetPoint('TOPLEFT',p,'TOPLEFT',12,-249)
  hide.text:SetText('Hide Already Collected')
  hide:SetChecked(settings().hideCollected)
  hide:SetScript('OnClick',function(self) settings().hideCollected=self:GetChecked() and true or false;refresh() end)
+ local show=CreateFrame('Button',nil,p,'UIPanelButtonTemplate')
+ show:SetPoint('TOPLEFT',p,'TOPLEFT',12,-283)
+ show:SetSize(215,25)
+ show:SetText('Show All Locations')
+ show:SetScript('OnClick',function() settings().mapPinFilters={};settings().hideCollected=false;p:Hide();refresh() end)
  WorldMapFrame.MapHubFilterPanel=p
 end
 local function install()
@@ -161,6 +166,6 @@ SlashCmdList.MAPHUBPINS=function()
  local id=WorldMapFrame and WorldMapFrame.GetMapID and WorldMapFrame:GetMapID()
  local count=0
  for _,r in ipairs(MapHubMapRecords or {}) do if r.mapID==id then count=count+1 end end
- print(('Map Hub 0.3.7: map ID %s; %d markers for this map; %d total records.'):format(tostring(id),count,#(MapHubMapRecords or {})))
+ print(('Map Hub 0.3.9: map ID %s; %d markers for this map; %d total records.'):format(tostring(id),count,#(MapHubMapRecords or {})))
  if count==0 then print('Map Hub: No records for this map. Midnight Eversong map ID 2395; old Eversong is a different map.') end
 end

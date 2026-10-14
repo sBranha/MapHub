@@ -1,6 +1,6 @@
 # MapHub
 
-Official World of Warcraft addon. Current published version: **v0.3.7**.
+Official World of Warcraft addon. Current published version: **v0.3.9**.
 
 - Addon information and download counter: https://gearhunter.net/
 - Downloadable releases: https://github.com/sBranha/MapHub/releases
@@ -22,3 +22,8 @@ No GitHub Desktop and no manual release asset upload are required. The website d
 **Important:** A version already published cannot be republished under the same tag by the workflow. Increase the TOC version for every new release. The source repository is not the public website: do not commit website administration code, SQLite data, passwords, setup keys, or credentials.
 
 The optional Windows Companion and in-game GearHubBridge supply update notifications and opt-in usage reporting. The addon itself works independently of them.
+
+
+### WoW Retail 12.1.5 update
+
+MapHub v0.3.9 supports interface 120105 and includes **Support & Website** in the main /maphub screen, `/mhsupport`, and the updated map filters with a Show All Locations reset. The addon remains free and doesn't make HTTP requests inside WoW.

@@ -1,4 +1,4 @@
--- Map Hub Explorer v0.3.7: integrated searchable guides, planner, collection and tracking.
+-- Map Hub Explorer v0.3.9: integrated searchable guides, planner, collection and tracking.
 -- Locations are intentionally limited to documented starter records; no fabricated database.
 local records={
  {id='felcloth',name='Felcloth',type='Farming',exp='Classic',zone='Felwood',map=77,x=43,y=20,source='Jadefire satyrs',details='Classic-era satyr farming location. Drops and enemies differ by WoW edition. Verify in Retail.'},
@@ -61,7 +61,7 @@ end
 local function make()
  frame=CreateFrame('Frame','MapHubExplorer',UIParent,'BackdropTemplate'); frame:SetSize(770,555); frame:SetPoint('CENTER'); frame:SetFrameStrata('DIALOG'); frame:SetMovable(true); frame:EnableMouse(true); frame:RegisterForDrag('LeftButton'); frame:SetScript('OnDragStart',frame.StartMoving); frame:SetScript('OnDragStop',frame.StopMovingOrSizing)
  frame:SetBackdrop({bgFile='Interface\\DialogFrame\\UI-DialogBox-Background',edgeFile='Interface\\DialogFrame\\UI-DialogBox-Border',edgeSize=28,insets={left=8,right=8,top=8}})
- local title=frame:CreateFontString(nil,'OVERLAY','GameFontNormalLarge'); title:SetPoint('TOPLEFT',20,-20); title:SetText('MAP HUB  |cff9db2c5v0.3.7|r  Explorer + Planner')
+ local title=frame:CreateFontString(nil,'OVERLAY','GameFontNormalLarge'); title:SetPoint('TOPLEFT',20,-20); title:SetText('MAP HUB  |cff9db2c5v0.3.9|r  Explorer + Planner')
  makeButton(frame,'X',727,-14,25,25,function() frame:Hide() end)
  frame.exp=makeButton(frame,'',18,-55,350,27,function() expIndex=expIndex%#expansions+1; selected=nil; refresh() end)
  frame.kind=makeButton(frame,'',390,-55,360,27,function() typeIndex=typeIndex%#types+1; selected=nil; refresh() end)

@@ -71,7 +71,7 @@ end
 local function createUI()
  panel=CreateFrame('Frame','MapHubPanel',UIParent,'BackdropTemplate'); panel:SetSize(620,420); panel:SetPoint('CENTER'); panel:SetFrameStrata('DIALOG'); panel:SetMovable(true); panel:EnableMouse(true); panel:RegisterForDrag('LeftButton'); panel:SetScript('OnDragStart',panel.StartMoving); panel:SetScript('OnDragStop',panel.StopMovingOrSizing)
  panel:SetBackdrop({bgFile='Interface\\DialogFrame\\UI-DialogBox-Background',edgeFile='Interface\\DialogFrame\\UI-DialogBox-Border',edgeSize=28,insets={left=8,right=8,top=8,bottom=8}})
- local heading=panel:CreateFontString(nil,'OVERLAY','GameFontNormalLarge'); heading:SetPoint('TOPLEFT',20,-18); heading:SetText('|cffffd18aMAP HUB|r  |cff9db2c5v0.3.7|r')
+ local heading=panel:CreateFontString(nil,'OVERLAY','GameFontNormalLarge'); heading:SetPoint('TOPLEFT',20,-18); heading:SetText('|cffffd18aMAP HUB|r  |cff9db2c5v0.3.9|r')
  button(panel,'X',574,-14,26,24,function() panel:Hide() end)
  local sub=panel:CreateFontString(nil,'OVERLAY','GameFontHighlightSmall'); sub:SetPoint('TOPLEFT',20,-47); sub:SetText('Treasure guides  •  Secrets  •  Profession checklists')
  button(panel,'Farming Finder',430,-42,170,27,function() if MapHubOpenFarming then MapHubOpenFarming() end end)

@@ -1,8 +1,8 @@
-## Interface: 120100, 120007, 120001
+## Interface: 120105, 120007, 120001
 ## Title: Map Hub - Explorer, Farming & Guides
-## Notes: Starter explorer, farming, guides, collection checklists, planner, and user waypoints.
+## Notes: WoW 12.1.5 map pins, discovery filters, guides, planner, and website support.
 ## Author: Map Hub
-## Version: 0.3.7
+## Version: 0.3.9
 ## SavedVariables: MapHubDB
 Farming.lua
 MapHub.lua
@@ -12,3 +12,4 @@ MapPins.lua
 MapPins.xml
 
 HubIntegration.lua
+WebsiteSupport.lua
